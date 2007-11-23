@@ -2,11 +2,12 @@
 Name: libxdmcp
 Summary: X Display Manager Control Protocol library
 Version: 1.0.2
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
 Source0: http://xorg.freedesktop.org/releases/individual/lib/libXdmcp-%{version}.tar.bz2
+Patch0: libxdmcp-visibility.patch
 BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: x11-proto-devel >= 1.0.0
@@ -73,6 +74,7 @@ Static development files for %{name}
 
 %prep
 %setup -q -n libXdmcp-%{version}
+%patch0 -p1 -b .visibility
 
 %build
 %configure2_5x	--x-includes=%{_includedir}\
