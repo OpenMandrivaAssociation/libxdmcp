@@ -8,6 +8,7 @@ License: MIT
 URL: http://xorg.freedesktop.org
 Source0: http://xorg.freedesktop.org/releases/individual/lib/libXdmcp-%{version}.tar.bz2
 Patch0: libxdmcp-visibility.patch
+BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-util-macros >= 1.0.1
