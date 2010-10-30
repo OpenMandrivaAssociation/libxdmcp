@@ -1,8 +1,8 @@
 %define libxdmcp %mklibname xdmcp 6
 Name: libxdmcp
 Summary: X Display Manager Control Protocol library
-Version: 1.0.3
-Release: %mkrel 2
+Version: 1.1.0
+Release: %mkrel 1
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
