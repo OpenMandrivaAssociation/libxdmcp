@@ -47,6 +47,7 @@ fi
 
 %files -n %{libxdmcp}-devel
 %defattr(-,root,root)
+%_datadir/doc/libXdmcp/xdmcp.xml
 %{_libdir}/libXdmcp.la
 %{_libdir}/libXdmcp.so
 %{_libdir}/pkgconfig/xdmcp.pc
