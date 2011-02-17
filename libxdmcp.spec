@@ -1,8 +1,11 @@
 %define libxdmcp %mklibname xdmcp 6
+%define develname %mklibname xdmcp -d
+%define staticname %mklibname xdmcp -s -d
+
 Name: libxdmcp
 Summary: X Display Manager Control Protocol library
 Version: 1.1.0
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -28,24 +31,26 @@ X Display Manager Control Protocol library
 
 #-----------------------------------------------------------
 
-%package -n %{libxdmcp}-devel
+%package -n %{develname}
 Summary: Development files for %{name}
 Group: Development/X11
 Requires: %{libxdmcp} = %{version}
 Requires: x11-proto-devel >= 1.0.0
 Provides: libxdmcp-devel = %{version}-%{release}
+Provides: libxdmcp6-devel = %{version}-%{release}
+Obsoletes: %{mklibname xdmcp6}-devel
 
 Conflicts: libxorg-x11-devel < 7.0
 
-%description -n %{libxdmcp}-devel
+%description -n %{develname}
 Development files for %{name}
 
-%pre -n %{libxdmcp}-devel
+%pre -n %{develname}
 if [ -h %{_includedir}/X11 ]; then
 	rm -f %{_includedir}/X11
 fi
 
-%files -n %{libxdmcp}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %_datadir/doc/libXdmcp/xdmcp.xml
 %{_libdir}/libXdmcp.la
@@ -55,18 +60,20 @@ fi
 
 #-----------------------------------------------------------
 
-%package -n %{libxdmcp}-static-devel
+%package -n %{staticname}
 Summary: Static development files for %{name}
 Group: Development/X11
-Requires: %{libxdmcp}-devel = %{version}
+Requires: %{develname} = %{version}
 Provides: libxdmcp-static-devel = %{version}-%{release}
+Provides: libxdmcp6-static-devel = %{version}-%{release}
+Obsoletes: %{mklibname xdmcp6}-static-devel
 
 Conflicts: libxorg-x11-static-devel < 7.0
 
-%description -n %{libxdmcp}-static-devel
+%description -n %{staticname}
 Static development files for %{name}
 
-%files -n %{libxdmcp}-static-devel
+%files -n %{staticname}
 %defattr(-,root,root)
 %{_libdir}/libXdmcp.a
 
