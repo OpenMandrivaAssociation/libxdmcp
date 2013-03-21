@@ -10,6 +10,7 @@ Group:		Development/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXdmcp-%{version}.tar.bz2
+Patch0:		aarch64.patch
 
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-util-macros >= 1.0.1
@@ -40,6 +41,7 @@ Development files for %{name}
 
 %prep
 %setup -qn libXdmcp-%{version}
+%apply_patches
 
 %build
 %configure2_5x \
@@ -57,7 +59,7 @@ rm -rf %{buildroot}
 %{_libdir}/libXdmcp.so.%{major}*
 
 %files -n %{develname}
-%_datadir/doc/libXdmcp/xdmcp.xml
+%_datadir/doc/libXdmcp/xdmcp.*
 %{_libdir}/libXdmcp.so
 %{_libdir}/pkgconfig/xdmcp.pc
 %{_includedir}/X11/Xdmcp.h
