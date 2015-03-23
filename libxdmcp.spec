@@ -1,11 +1,11 @@
-%define major	6
-%define libname	%mklibname xdmcp %{major}
-%define devname	%mklibname xdmcp -d
+%define major 6
+%define libname %mklibname xdmcp %{major}
+%define devname %mklibname xdmcp -d
 
 Summary:	X Display Manager Control Protocol library
 Name:		libxdmcp
-Version:	1.1.1
-Release:	11
+Version:	1.1.2
+Release:	1
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
@@ -39,7 +39,7 @@ Development files for %{name}.
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--x-includes=%{_includedir} \
 	--x-libraries=%{_libdir}
