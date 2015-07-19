@@ -5,7 +5,7 @@
 Summary:	X Display Manager Control Protocol library
 Name:		libxdmcp
 Version:	1.1.2
-Release:	1
+Release:	2
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
