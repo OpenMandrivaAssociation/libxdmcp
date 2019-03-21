@@ -4,8 +4,8 @@
 
 Summary:	X Display Manager Control Protocol library
 Name:		libxdmcp
-Version:	1.1.2
-Release:	4
+Version:	1.1.3
+Release:	1
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
@@ -34,8 +34,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 Development files for %{name}.
 
 %prep
-%setup -qn libXdmcp-%{version}
-%apply_patches
+%autosetup -n libXdmcp-%{version} -p1
 
 %build
 %configure \
@@ -43,10 +42,10 @@ Development files for %{name}.
 	--x-includes=%{_includedir} \
 	--x-libraries=%{_libdir}
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libXdmcp.so.%{major}*
@@ -56,4 +55,3 @@ Development files for %{name}.
 %{_libdir}/libXdmcp.so
 %{_libdir}/pkgconfig/xdmcp.pc
 %{_includedir}/X11/Xdmcp.h
-
