@@ -2,10 +2,12 @@
 %define libname %mklibname xdmcp %{major}
 %define devname %mklibname xdmcp -d
 
+%global optflags %{optflags} -O3
+
 Summary:	X Display Manager Control Protocol library
 Name:		libxdmcp
 Version:	1.1.3
-Release:	1
+Release:	2
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
